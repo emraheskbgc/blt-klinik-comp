@@ -16,12 +16,97 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.head{
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30%;
+}
+.switch-container {
+  display: flex;
+  margin-left: 70px;
+  margin-top: 20px;
+  align-items: center;
+  width: 450px; 
+  height: 70px; 
+  border: 1px solid #ccc;
+  border-radius: 25px; 
+  overflow: hidden; 
+  position: relative; 
+  border: none;
+}
+
+.switch-handle {
+  width: 210px;
+  height: 50px;
+  transition: left 0.3s ease-in-out;
+  position: absolute; /* Butonların üzerine yerleştirmek için */
+  top: 9px;
+  left: 15px;
+  border-radius: 20px;
+}
+
+.switch-container.active .switch-handle {
+  transform: translateX(100%); 
+}
+
+.switch-button {
+  width: 400px; 
+  height: 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+.switch-container.active .left-button {
+  
+  color: white; 
+}
+
+.switch-container.active .right-button {
+ 
+  color: white; 
+}
+
+.button-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: left 2s ease-in-out;
+}
+
+.input-container {
+  padding-left: 100px; /* Butonun başlangıçta yanında olmasını sağlar */
+}
+
+/* isActive false olduğunda butonu hareket ettirme */
+input:focus ~ .button-container {
+  transform: translateX(100%); /* Butonu input'un yanına kaydırır */
+}
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(0);
+  
+  }
+  to {
+    transform: translateX(0);
+ 
+  }
+}
+
+.slideInFromLeft {
+  animation-name: slideInFromLeft;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+
+
