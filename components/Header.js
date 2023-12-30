@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Header() {
+function Header({headerText,headerText2,headerText3}) {
   return (
     <div>
         <div className='head text-headTxt1'>
-            Doktor bul, randevu al,
+           {headerText}
             <br/>
-            online <span className='text-headTxt2'>görüşme yap!</span>
+            {headerText2} <span className='text-headTxt2'>{headerText3}</span>
         </div>
     </div>
   )

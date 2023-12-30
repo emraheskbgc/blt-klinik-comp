@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search";
 
-function ChoseType() {
+function ChoseType({typeText1,typeText2,searchPlaceholder}) {
   const [isActive, setIsActive] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
 console.log(isActive);
@@ -34,10 +34,10 @@ console.log(isActive);
       className="switch-container bg-switchBg text-headTxt1"
       >
         <div className={`switch-handle bg-switchHandleBg ${isActive ? "online-active" : ""}`}></div>
-        <div className="switch-button left-button" onClick={() => toggleSwitch(true)}>Online Görüşme</div>
-        <div className="switch-button right-button"onClick={() => toggleSwitch(false)}>Yüz Yüze Randevu</div>
+        <div className="switch-button left-button" onClick={() => toggleSwitch(true)}>{typeText1}</div>
+        <div className="switch-button right-button"onClick={() => toggleSwitch(false)}>{typeText2}</div>
       </div>
-     <Search isActive={isActive} showDropdown={showDropdown} setShowDropdown={setShowDropdown} handleDropdownClick={handleDropdownClick} />
+     <Search searchPlaceholder={searchPlaceholder} isActive={isActive} showDropdown={showDropdown} setShowDropdown={setShowDropdown} handleDropdownClick={handleDropdownClick} />
     </>
   );
 }

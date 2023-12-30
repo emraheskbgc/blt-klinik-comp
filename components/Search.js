@@ -7,13 +7,12 @@ import sugDatas from "../data/suggestions.json"
 
 function Search({
   isActive,
+  searchPlaceholder,
   setShowDropdown,
   showDropdown,
   handleDropdownClick,
 }) {
-  const [inputPlaceholder, setInputPlaceholder] = useState(
-    "Doktor ve branş arayın..."
-  );
+  const inputPlaceholder =searchPlaceholder
   // önerileri bool tuttuğumuz state
   const [showSuggestions, setShowSuggestions] = useState(false);
   //seçilen şehri tuttuğumuz state
