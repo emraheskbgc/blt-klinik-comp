@@ -37,12 +37,10 @@ function Search({
     <>
       <div className=" mt-10 relative">
         <div
-          className={`flex w-[600px] rounded-[25px] bg-inputBg relative ${
-            !isActive ? "input-container" : ""
-          }`}
+          className="flex md:w-[600px] w-[400px] rounded-[25px] bg-inputBg relative"
         >
           {!isActive && (
-            <div className="absolute button-container top-0">
+            <div className="absolute button-container top-0 hidden md:block">
               <button
                 onClick={handleDropdownClick}
                 className={`bg-inputLocBg mt-2 flex mx-2 min-w-[150px] max-w-[150px] rounded-xl px-6 py-4  text-inputTxt  ${
@@ -73,14 +71,14 @@ function Search({
             name="search"
             id="search"
             placeholder={inputPlaceholder}
-            className={`w-full border-none bg-transparent px-4 py-6 text-gray-900 outline-none focus:outline-none ${
-              isActive ? "pl-3" : "pl-20"
+            className={`w-full border-none bg-transparent  py-6 text-gray-900 outline-none focus:outline-none ${
+              isActive ? "pl-2" : " md:pl-44 pl-2"
             }`}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}  
           />
           <button className="m-2 rounded-xl bg-[#3de0a1] px-4 py-2 text-white flex items-center justify-center">
-            ara <IoSearch className="text-xl ml-4" />
+            <span className="hidden md:block">ara</span> <IoSearch className="text-xl md:ml-4" />
           </button>
         
           {showSuggestions && (

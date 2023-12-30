@@ -6,14 +6,20 @@ function ChoseType({typeText1,typeText2,searchPlaceholder}) {
   const [isActive, setIsActive] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
 console.log(isActive);
-  useEffect(() => {
-    // Sayfa yüklendiğinde veya isActive değiştiğinde switch-handle'ın konumunu güncelle
-    if (isActive) {
-      document.querySelector('.switch-handle').style.left = '15px '; // Online Görüşme için sol tarafa
+useEffect(() => {
+  if (isActive) {
+    document.querySelector('.switch-handle').style.left = '15px';
+  } else {
+    // 768 pikselden büyük ekranlar için 155px olarak ayarlandı.
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 768) {
+      document.querySelector('.switch-handle').style.left = '225px';
     } else {
-      document.querySelector('.switch-handle').style.left = '225px'; // Yüz Yüze Randevu için sağ tarafa
+      document.querySelector('.switch-handle').style.left = '155px';
     }
-  }, [isActive]);
+  }
+}, [isActive]);
+
 
   const toggleSwitch = (isOnline) => {
     if (isOnline && !isActive) {
@@ -31,11 +37,11 @@ console.log(isActive);
   return (
     <>
       <div
-      className="switch-container bg-switchBg text-headTxt1"
+      className="switch-container w-[70%] md:w-[90%]  bg-switchBg text-headTxt1"
       >
-        <div className={`switch-handle bg-switchHandleBg ${isActive ? "online-active" : ""}`}></div>
-        <div className="switch-button left-button" onClick={() => toggleSwitch(true)}>{typeText1}</div>
-        <div className="switch-button right-button"onClick={() => toggleSwitch(false)}>{typeText2}</div>
+        <div className={`switch-handle bg-switchHandleBg md:w-[210px] w-[120px] ${isActive ? "online-active" : ""}`}></div>
+        <div className="switch-button text-xs md:text-md left-button" onClick={() => toggleSwitch(true)}>{typeText1}</div>
+        <div className="switch-button text-xs md:text-md right-button"onClick={() => toggleSwitch(false)}>{typeText2}</div>
       </div>
      <Search searchPlaceholder={searchPlaceholder} isActive={isActive} showDropdown={showDropdown} setShowDropdown={setShowDropdown} handleDropdownClick={handleDropdownClick} />
     </>
