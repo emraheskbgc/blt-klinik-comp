@@ -3,24 +3,11 @@ import React, { useState } from "react";
 import { FaStethoscope, FaArrowRightLong,FaCaretDown,FaCaretUp } from "react-icons/fa6";
 
 
-function Navbar() {
+function Navbar({menuItems,askQuestions,doctor}) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
 
-  const menuItems = [
-    {
-      title: 'Hastalar İçin',
-      children: ['Doktorlar ve Uzmanlar', 'Çerezler', 'Veri Güvenliği', 'Doktor Satış Sözleşmesi', 'Hasta Aydınlatma Metni']
-    },
-    {
-      title: 'Doktorlar İçin',
-      children: ['Öne Çıkan Özellikler', 'Entegrasyonlar', 'Makale', 'Fiyatlar', 'Çerezler', 'Veri Güvenliği', 'Doktor Satış Sözleşmesi']
-    },
-    {
-      title: 'Bulut Klinik',
-      children: ['Hakkımızda', 'İletişim', 'Kariyer', 'Danışma Kurulu']
-    }
-  ];
+  
   const handleMenuClick = (title) => {
     if (activeMenu === title) {
       // Aynı menü tekrar tıklandığında kapanır
@@ -41,7 +28,7 @@ function Navbar() {
               <span>
                 <FaStethoscope />
               </span>
-              <span className="ml-4">Doktor musunuz?</span>
+              <span className="ml-4">{doctor}</span>
             </button>
           </div>
         </div>
@@ -89,7 +76,7 @@ function Navbar() {
 
       {/* Menü İçeriği */}
       {isOpen && (
-        <div className="fixed inset-0 z-30 bg-white ">
+        <div className="fixed inset-0 z-30 bg-white md:hidden">
           <div className="flex flex-col justify-center mt-32 border-t border-b py-9 border-hmbgrBorder">
           <div className="flex justify-evenly">
           <button className="bg-switchBg text-headTxt1 py-5 px-5 rounded-xl  ">
@@ -124,13 +111,13 @@ function Navbar() {
             
           </div>
           <div className="text-hmbgrTxt font-semibold text-lg mt-8  ml-9">
-          <h3 className="mb-5">Sıkça Sorulan Sorular</h3>
+          <h3 className="mb-5">{askQuestions}</h3>
           <h3 className="mb-5">Makale</h3>
           <button className="flex justify-evenly items-center bg-hmbgrBg  text-switchBg font-semibold w-[90%] rounded-xl py-3 px-5 ">
           <span>
             <FaStethoscope className="text-3xl" />
           </span>
-          <span className="ml-4">Doktor musunuz?</span>
+          <span className="ml-4">{doctor}</span>
         </button>
           </div>
         </div>
