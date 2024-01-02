@@ -24,6 +24,10 @@ module.exports = {
         inputBg:"#ffffff",
         inputTxt:"#9ca3af",
         inputLocBg:"#e9f9f6",
+        hmbgrBg:"#ecf8f7",
+        hmbgrTxt:"#686891",
+        hmbgrCurentBg:"#44eaaa",
+        hmbgrBorder:"#eeeff1"
 
 
       }

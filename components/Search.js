@@ -35,7 +35,7 @@ function Search({
   const displayCityName = selectedCity.length > 6 ? `${selectedCity.substring(0, 6)}...` : selectedCity;
   return (
     <>
-      <div className=" mt-10 relative">
+      <div className=" mt-10 relative flex justify-center items-center">
         <div
           className="flex md:w-[600px] w-[400px] rounded-[25px] bg-inputBg relative"
         >

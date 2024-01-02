@@ -12,9 +12,9 @@ export default function Home() {
 
   const searchPlaceholder = "Doktor ve branş arayın..."
   return (
-    <div >
+    <>
     <Header headerText={headerText} headerText2={headerText2} headerText3={headerText3} />
     <ChoseType typeText1={typeText1} typeText2={typeText2} searchPlaceholder={searchPlaceholder} />
-    </div>
+    </>
   )
 }

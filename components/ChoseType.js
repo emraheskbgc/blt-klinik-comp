@@ -5,7 +5,7 @@ import Search from "./Search";
 function ChoseType({typeText1,typeText2,searchPlaceholder}) {
   const [isActive, setIsActive] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
-console.log(isActive);
+
 useEffect(() => {
   if (isActive) {
     document.querySelector('.switch-handle').style.left = '15px';
@@ -37,7 +37,7 @@ useEffect(() => {
   return (
     <>
       <div
-      className="switch-container w-[70%] md:w-[90%]  bg-switchBg text-headTxt1"
+      className="switch-container md:ml-[25%] ml-[15%] w-[70%] md:w-[90%]  bg-switchBg text-headTxt1"
       >
         <div className={`switch-handle bg-switchHandleBg md:w-[210px] w-[120px] ${isActive ? "online-active" : ""}`}></div>
         <div className="switch-button text-xs md:text-md left-button" onClick={() => toggleSwitch(true)}>{typeText1}</div>
